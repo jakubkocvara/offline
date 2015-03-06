@@ -525,11 +525,11 @@
 }
 /* line 61, ../sass/offline-theme-dark.sass */
 .offline-ui.offline-ui-up {
-  -webkit-animation: offline-dropout forwards 0.5s 2s;
-  -moz-animation: offline-dropout forwards 0.5s 2s;
-  -ms-animation: offline-dropout forwards 0.5s 2s;
-  -o-animation: offline-dropout forwards 0.5s 2s;
-  animation: offline-dropout forwards 0.5s 2s;
+  -webkit-animation: offline-dropout forwards 0.5s 4s;
+  -moz-animation: offline-dropout forwards 0.5s 4s;
+  -ms-animation: offline-dropout forwards 0.5s 4s;
+  -o-animation: offline-dropout forwards 0.5s 4s;
+  animation: offline-dropout forwards 0.5s 4s;
   -webkit-backface-visibility: hidden;
 }
 /* line 64, ../sass/offline-theme-dark.sass */
