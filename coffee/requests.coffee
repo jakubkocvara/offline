@@ -58,9 +58,13 @@ setTimeout ->
     Offline.onXHR (request) ->
       {xhr, async} = request
     
+      if xhr.offline == false
+        return
+      
       split = request.url.split('/')
       xhrType = if split[split.length - 1] then split[split.length - 1] else split[split.length - 2]
-      if xhr.offline == false or xhrType != 'draft'
+      rf = Offline.options.requestsFilter;
+      if !rf || rf.indexOf(xhrType) == -1
         return
 
       hold = -> holdRequest request

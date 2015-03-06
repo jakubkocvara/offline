@@ -72,11 +72,15 @@
         return waitingOnConfirm = false;
       });
       Offline.onXHR(function(request) {
-        var _onreadystatechange, _send, async, hold, split, xhr, xhrType;
+        var _onreadystatechange, _send, async, hold, rf, split, xhr, xhrType;
         xhr = request.xhr, async = request.async;
+        if (xhr.offline === false) {
+          return;
+        }
         split = request.url.split('/');
         xhrType = split[split.length - 1] ? split[split.length - 1] : split[split.length - 2];
-        if (xhr.offline === false || xhrType !== 'draft') {
+        rf = Offline.options.requestsFilter;
+        if (!rf || rf.indexOf(xhrType) === -1) {
           return;
         }
         hold = function() {

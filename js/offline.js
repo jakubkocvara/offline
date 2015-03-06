@@ -42,7 +42,8 @@
     },
     checkOnLoad: false,
     interceptRequests: true,
-    reconnect: true
+    reconnect: true,
+    requestsFilter: []
   };
 
   grab = function(obj, key) {

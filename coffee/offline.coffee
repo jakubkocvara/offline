@@ -36,6 +36,8 @@ defaultOptions =
 
   reconnect: true
 
+  requestsFilter: []
+
 grab = (obj, key) ->
   cur = obj
   parts = key.split('.')
