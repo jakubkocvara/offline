@@ -26,7 +26,6 @@ clear = ->
   held = []
 
 flush = ->
-  Offline.trigger 'requests:flush'
 
   requests = {}
   # Dedup requests, favoring the later request
@@ -41,6 +40,8 @@ flush = ->
   for key, request of requests
     makeRequest request
 
+  Offline.flushedRequests = requests
+  Offline.trigger 'requests:flush'
   clear()
 
 setTimeout ->
