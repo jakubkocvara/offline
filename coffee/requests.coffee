@@ -58,8 +58,10 @@ setTimeout ->
     Offline.onXHR (request) ->
       {xhr, async} = request
     
-      console.log request
-      return if xhr.offline is false
+      split = request.url.split('/')
+      xhrType = if split[split.length - 1] then split[split.length - 1] else split[split.length - 2]
+      if xhr.offline == false or xhrType != 'draft'
+        return
 
       hold = -> holdRequest request
 

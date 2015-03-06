@@ -72,10 +72,11 @@
         return waitingOnConfirm = false;
       });
       Offline.onXHR(function(request) {
-        var _onreadystatechange, _send, async, hold, xhr;
+        var _onreadystatechange, _send, async, hold, split, xhr, xhrType;
         xhr = request.xhr, async = request.async;
-        console.log(request);
-        if (xhr.offline === false) {
+        split = request.url.split('/');
+        xhrType = split[split.length - 1] ? split[split.length - 1] : split[split.length - 2];
+        if (xhr.offline === false || xhrType !== 'draft') {
           return;
         }
         hold = function() {
