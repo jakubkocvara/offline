@@ -57,7 +57,8 @@ setTimeout ->
 
     Offline.onXHR (request) ->
       {xhr, async} = request
-
+    
+      console.log request
       return if xhr.offline is false
 
       hold = -> holdRequest request

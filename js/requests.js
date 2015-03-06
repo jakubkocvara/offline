@@ -71,10 +71,10 @@
       Offline.on('down', function() {
         return waitingOnConfirm = false;
       });
-      Offline.onXHR(function (request) {
-        console.log(request);
+      Offline.onXHR(function(request) {
         var _onreadystatechange, _send, async, hold, xhr;
         xhr = request.xhr, async = request.async;
+        console.log(request);
         if (xhr.offline === false) {
           return;
         }
