@@ -72,6 +72,7 @@
         return waitingOnConfirm = false;
       });
       Offline.onXHR(function(request) {
+        console.log(request);
         var async, hold, xhr, _onreadystatechange, _send;
         xhr = request.xhr, async = request.async;
         if (xhr.offline === false) {
